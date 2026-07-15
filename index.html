@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <!--
+  ================================================================
+   HELLO! THIS IS YOUR PORTFOLIO WEBSITE.
+   Style: "game engine viewport" — built for a technical artist.
+
+   HOW TO EDIT:
+   1. Look for comments that start with "EDIT:".
+      They tell you exactly what you can change on that line.
+   2. Change the words BETWEEN the tags, like:  <h3>Change me</h3>
+      Do NOT delete the tags themselves ( the parts in < > ).
+   3. Save the file, then open index.html in your browser to see it.
+
+   HOW TO ADD PHOTOS:
+   1. Put your pictures inside the "images" folder.
+   2. Name them exactly like this:
+        my-photo.jpg  ..... your face photo (About section)
+        project1.jpg  ..... picture of project 1 (Forgotten Asylum)
+        project2.jpg  ..... picture of project 2 (Zorb Fight)
+   3. That is all! Refresh the page and they appear.
+      If a picture is missing, the site shows nice artwork instead.
+
+   Read EDIT-ME.md for the full simple guide.
+  ================================================================
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- EDIT: This description shows up in Google search results. -->
+    <meta
+      name="description"
+      content="Vishal Thakur — Technical Artist. Real-time environments, game-ready assets, shaders, and VFX built in Unity."
+    />
+    <meta name="theme-color" content="#07090c" />
+    <!-- EDIT: This is the name shown on the browser tab. -->
+    <title>Vishal Thakur — Technical Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Decorative viewport grid + scanline. No need to touch. -->
+    <div class="viewport-grid" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+
+    <!-- ============ TOP BAR (looks like an engine toolbar) ============ -->
+    <header class="toolbar">
+      <a class="toolbar-id" href="#top" aria-label="Vishal Thakur, home">
+        <span class="toolbar-dot"></span>
+        <!-- EDIT: Your name in the top-left corner. -->
+        <strong>VISHAL_THAKUR</strong>
+        <!-- EDIT: Your job title next to your name. -->
+        <span class="toolbar-role">// technical_artist</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <nav id="site-nav">
+        <a href="#work">[ work ]</a>
+        <a href="#about">[ about ]</a>
+        <a href="#skills">[ skills ]</a>
+        <a href="#experience">[ experience ]</a>
+        <a href="#education">[ education ]</a>
+        <!-- EDIT: Your email address goes after "mailto:". -->
+        <a class="nav-cta" href="mailto:thakurv886@gmail.com">contact ►</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO (the first big screen people see) ============ -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hud hud-tl" aria-hidden="true">cam_01 / persp<br />fov 45.0</div>
+        <div class="hud hud-tr" aria-hidden="true">fps 120<br />tris 847k</div>
+        <div class="hud hud-bl" aria-hidden="true">unity · maya · substance</div>
+        <div class="hud hud-br" aria-hidden="true">status: <b>rendering…</b></div>
+
+        <div class="hero-inner">
+          <!-- EDIT: The small line above your name. -->
+          <p class="hero-tag">&gt; open_scene: portfolio.unity <span class="blink">_</span></p>
+
+          <!-- EDIT: YOUR FULL NAME — the biggest text on the site. -->
+          <h1 id="hero-title">
+            <span class="glitch" data-text="VISHAL">VISHAL</span><br />
+            <span class="glitch outline" data-text="THAKUR">THAKUR</span>
+          </h1>
+
+          <!-- EDIT: Your job title line. -->
+          <p class="hero-role">TECHNICAL ARTIST — environments / shaders / real-time VFX</p>
+
+          <!-- EDIT: One short paragraph about yourself. -->
+          <p class="hero-intro">
+            Game design graduate expert in Unity, C#, 3D modeling, and environment
+            design. I build assets, shaders, and particle systems for 3D games —
+            driven to create realistic worlds and extraordinary player experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#work">view_work( )</a>
+            <!-- EDIT: Your email address (after "mailto:" and the visible text). -->
+            <a class="btn btn-ghost" href="mailto:thakurv886@gmail.com">send_mail( )</a>
+          </div>
+        </div>
+
+        <!-- Decorative wireframe sphere. No need to touch. -->
+        <div class="wire-sphere" aria-hidden="true">
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <div class="core"></div>
+        </div>
+      </section>
+
+      <!-- ============ STAT STRIP ============ -->
+      <!-- EDIT: Four quick stats about you. Change numbers and labels. -->
+      <section class="statbar" aria-label="Quick stats">
+        <div><b>02+</b><span>shipped projects</span></div>
+        <div><b>4yr</b><span>design education</span></div>
+        <div><b>PBR</b><span>texture pipeline</span></div>
+        <div><b>60fps</b><span>performance target</span></div>
+      </section>
+
+      <!-- ============ PROJECTS (your work) ============ -->
+      <section class="section" id="work">
+        <h2 class="section-title"><i>01</i> selected_work<span class="title-line"></span></h2>
+
+        <!-- ~~~~~~~~~~ PROJECT 1 ~~~~~~~~~~ -->
+        <article class="build reveal">
+          <!-- EDIT: The link (href=...) opens when someone clicks the picture. -->
+          <a
+            class="build-viewport scene-asylum"
+            href="https://d3d-studios.itch.io/the-forgotten-asylum"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View The Forgotten Asylum"
+          >
+            <!-- PHOTO: Put a file called "project1.jpg" in the images folder
+                 and it will automatically show here. -->
+            <img class="project-photo" src="images/project1.jpg" alt="The Forgotten Asylum screenshot" />
+            <div class="scene-light"></div>
+            <div class="scene-door"></div>
+            <span class="corner c-tl"></span><span class="corner c-tr"></span>
+            <span class="corner c-bl"></span><span class="corner c-br"></span>
+            <span class="viewport-label">scene_01.unity</span>
+            <span class="open-link">open ►</span>
+          </a>
+          <div class="build-info">
+            <!-- EDIT: Small labels above the project name. -->
+            <p class="build-meta">unity3d / environment_design / horror</p>
+            <!-- EDIT: Project 1 name. -->
+            <h3>The Forgotten Asylum</h3>
+            <!-- EDIT: Project 1 description. -->
+            <p class="build-desc">
+              Atmospheric horror environment built around exploration, puzzle flow,
+              and visual storytelling.
+            </p>
+            <!-- EDIT: The spec rows — one row per resume bullet point. -->
+            <dl class="specs">
+              <div>
+                <dt>environment</dt>
+                <dd>Designed and built atmospheric 3D environments that fit the horror theme, including corridors, rooms, and interactive spaces.</dd>
+              </div>
+              <div>
+                <dt>levels</dt>
+                <dd>Planned level flow, puzzles, navigation, and blockouts — iterating layouts to balance exploration, challenge, pacing, and narrative progression.</dd>
+              </div>
+              <div>
+                <dt>assets</dt>
+                <dd>Produced and assembled environment props using Maya and Substance Painter; carefully placed assets to create atmosphere and guide player attention.</dd>
+              </div>
+              <div>
+                <dt>perf</dt>
+                <dd>Managed polycount and texture budgets; implemented a 2×2 m occlusion culling grid, reducing draw calls and improving target hardware frame rate.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- ~~~~~~~~~~ PROJECT 2 ~~~~~~~~~~ -->
+        <article class="build reveal">
+          <!-- EDIT: The link (href=...) opens when someone clicks the picture. -->
+          <a
+            class="build-viewport scene-zorb"
+            href="https://d3d-studios.itch.io/zorb-fight"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View Zorb Fight"
+          >
+            <!-- PHOTO: Put a file called "project2.jpg" in the images folder
+                 and it will automatically show here. -->
+            <img class="project-photo" src="images/project2.jpg" alt="Zorb Fight screenshot" />
+            <div class="zorb-ball zorb-one"></div>
+            <div class="zorb-ball zorb-two"></div>
+            <span class="corner c-tl"></span><span class="corner c-tr"></span>
+            <span class="corner c-bl"></span><span class="corner c-br"></span>
+            <span class="viewport-label">scene_02.unity</span>
+            <span class="open-link">open ►</span>
+          </a>
+          <div class="build-info">
+            <!-- EDIT: Small labels above the project name. -->
+            <p class="build-meta">unity3d / technical_art / vfx</p>
+            <!-- EDIT: Project 2 name. -->
+            <h3>Zorb Fight</h3>
+            <!-- EDIT: Project 2 description. -->
+            <p class="build-desc">
+              Playful 3D game with custom assets, real-time VFX, and hand-built
+              Shader Graph materials wired straight into gameplay.
+            </p>
+            <!-- EDIT: The spec rows — one row per resume bullet point. -->
+            <dl class="specs">
+              <div>
+                <dt>assets</dt>
+                <dd>Created game-ready 3D assets using Maya and Substance Painter — clean topology, optimised UVs, and PBR-ready textures for smooth performance in Unity.</dd>
+              </div>
+              <div>
+                <dt>particles</dt>
+                <dd>Implemented VFX such as collision bursts, scoring effects, and movement trails using Unity's particle system.</dd>
+              </div>
+              <div>
+                <dt>shaders</dt>
+                <dd>Developed a custom Shader Graph material.</dd>
+              </div>
+              <div>
+                <dt>gameplay</dt>
+                <dd>Collaborated with designers and programmers to integrate assets, VFX, and shaders into gameplay mechanics.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!--
+        WANT A THIRD PROJECT?
+        Copy everything from "PROJECT 2" (the <article> down to </article>),
+        paste it right here, and change the name, description, and link.
+        Use "images/project3.jpg" for its photo.
+        -->
+      </section>
+
+      <!-- ============ ABOUT (who you are) ============ -->
+      <section class="section" id="about">
+        <h2 class="section-title"><i>02</i> about_me<span class="title-line"></span></h2>
+        <div class="about-layout reveal">
+          <!-- PHOTO: Put a file called "my-photo.jpg" in the images folder
+               and your photo will automatically show here. -->
+          <figure class="profile-frame">
+            <img class="profile-photo" src="images/my-photo.jpg" alt="Photo of Vishal Thakur" />
+            <span class="corner c-tl"></span><span class="corner c-tr"></span>
+            <span class="corner c-bl"></span><span class="corner c-br"></span>
+            <figcaption class="profile-caption">vishal_thakur.jpg</figcaption>
+          </figure>
+          <div class="about-copy">
+            <!-- EDIT: Your big about-me sentence. -->
+            <h3>I'm <em>Vishal Thakur</em>, a technical artist who bridges creative vision and technical execution.</h3>
+            <!-- EDIT: About paragraph 1. -->
+            <p>
+              I'm a game design graduate focused on building believable real-time
+              worlds. My work moves from Maya and Substance Painter into Unity,
+              where I create performant assets, shaders, particle effects, and
+              environments.
+            </p>
+            <!-- EDIT: About paragraph 2. -->
+            <p>
+              I enjoy solving visual problems with technical thinking — refining a
+              material, cutting draw calls, or guiding players through a scene with
+              light and composition.
+            </p>
+            <!-- EDIT: The terminal-style facts. Change the values after the ":". -->
+            <div class="terminal">
+              <p><span>&gt;</span> education: <b>B.Des Game Design (2019–2023)</b></p>
+              <p><span>&gt;</span> engine: <b>Unity + C#</b></p>
+              <p><span>&gt;</span> phone: <b>+91 86996 25765</b></p>
+              <p><span>&gt;</span> email: <b>thakurv886@gmail.com</b></p>
+              <p><span>&gt;</span> location: <b>India</b></p>
+              <p><span>&gt;</span> status: <b class="ok">available_for_work</b></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS (what you can do) ============ -->
+      <section class="section" id="skills">
+        <h2 class="section-title"><i>03</i> skill_tree<span class="title-line"></span></h2>
+        <div class="skill-grid">
+          <!-- EDIT: Each card = one tool from your resume. Change titles, lists, and levels.
+               The number after data-level (0 to 100) sets the bar length. -->
+          <div class="skill-node reveal">
+            <header><b>maya</b><span>node_01</span></header>
+            <ul>
+              <li>3D Modeling</li>
+              <li>UV Mapping</li>
+            </ul>
+            <div class="meter" data-level="90"><i></i></div>
+            <footer>Autodesk Maya</footer>
+          </div>
+          <div class="skill-node reveal">
+            <header><b>zbrush</b><span>node_02</span></header>
+            <ul>
+              <li>Sculpting</li>
+              <li>Detailing</li>
+            </ul>
+            <div class="meter" data-level="80"><i></i></div>
+            <footer>Pixologic ZBrush</footer>
+          </div>
+          <div class="skill-node reveal">
+            <header><b>substance</b><span>node_03</span></header>
+            <ul>
+              <li>Texturing</li>
+              <li>PBR texture sets</li>
+            </ul>
+            <div class="meter" data-level="85"><i></i></div>
+            <footer>Substance Painter</footer>
+          </div>
+          <div class="skill-node reveal">
+            <header><b>photoshop</b><span>node_04</span></header>
+            <ul>
+              <li>Texture editing</li>
+              <li>Image compositing</li>
+            </ul>
+            <div class="meter" data-level="75"><i></i></div>
+            <footer>Adobe Photoshop</footer>
+          </div>
+          <div class="skill-node reveal">
+            <header><b>unity</b><span>node_05</span></header>
+            <ul>
+              <li>Game engine · C#</li>
+              <li>Particle systems &amp; Shader Graph</li>
+            </ul>
+            <div class="meter" data-level="85"><i></i></div>
+            <footer>Unity 3D</footer>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE (jobs and internships) ============ -->
+      <section class="section" id="experience">
+        <h2 class="section-title"><i>04</i> experience<span class="title-line"></span></h2>
+        <!-- EDIT: Each row = one job. Copy a whole row to add more. -->
+        <div class="log-row reveal">
+          <span class="log-date">2 months</span>
+          <div>
+            <b>Texture Artist Intern — Ikarus 3D</b>
+            <ul class="log-list">
+              <li>Produced game-ready PBR asset sets (albedo, roughness, metallic, normal) in Substance Painter, meeting studio quality and polycount standards.</li>
+              <li>Collaborated with the 3D art team on UV layout and texture optimization, contributing to an asset production pipeline over a 2-month internship.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION (schools and degrees) ============ -->
+      <section class="section" id="education">
+        <h2 class="section-title"><i>05</i> education<span class="title-line"></span></h2>
+        <!-- EDIT: Each row = one school or degree. Copy a whole row to add more. -->
+        <div class="log-row reveal">
+          <span class="log-date">2019–2023</span>
+          <div>
+            <b>Bachelor of Design in Game Design — Artemisia College of Art &amp; Design, Indore, MP</b>
+            <p>Game design, real-time production, 3D workflows, and interactive experiences.</p>
+          </div>
+        </div>
+        <div class="log-row reveal">
+          <span class="log-date">2017–2019</span>
+          <div>
+            <b>Electrician — Malwa College ITI, Patiala</b>
+            <p>Industrial training in electrical systems before moving into game design.</p>
+          </div>
+        </div>
+        <div class="log-row reveal">
+          <span class="log-date">2016</span>
+          <div>
+            <b>Secondary Education — Kendriya Vidyalaya No. 2, Patiala</b>
+            <p>Completed secondary schooling.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT (how to reach you) ============ -->
+      <section class="section contact" id="contact">
+        <h2 class="section-title"><i>06</i> contact<span class="title-line"></span></h2>
+        <div class="contact-box reveal">
+          <!-- EDIT: The big invitation line. -->
+          <p class="contact-big">Have a world to build?<br />Let's make it <em>run at 60fps.</em></p>
+          <!-- EDIT: Your email address goes after "mailto:" and in the text. -->
+          <a class="btn btn-solid btn-big" href="mailto:thakurv886@gmail.com">thakurv886@gmail.com ►</a>
+          <!-- EDIT: Your phone number (after "tel:+91" and in the text). -->
+          <p class="contact-phone"><a href="tel:+918699625765">+91 86996 25765</a></p>
+          <!-- EDIT: Your links. Put your real profile web addresses in href="...". -->
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin</a>
+            <a href="https://www.artstation.com/" target="_blank" rel="noreferrer">artstation</a>
+            <a href="https://d3d-studios.itch.io/" target="_blank" rel="noreferrer">itch.io</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER (the very bottom line) ============ -->
+    <footer class="statusbar">
+      <!-- EDIT: Your name. The year updates by itself. -->
+      <span>© <span id="year"></span> vishal_thakur</span>
+      <span>technical_artist @ india</span>
+      <a href="#top">scroll_to_top ▲</a>
+    </footer>
+  </body>
+</html>
