@@ -445,3 +445,28 @@ h2.title em { font-style: normal; color: var(--moss); }
 .shots.split .shot.tall img { flex: 1; height: auto; min-height: 520px; }
 .shots.split .shot:not(.tall) img { height: 220px; }
 @media (max-width: 1024px) { .shots.split { grid-template-columns: 1fr; } .shots.split .shot.tall { grid-row: auto; } .shots.split .shot.tall img { min-height: 360px; } }
+
+/* ---------- Effect case studies (video + stacked graph steps) ---------- */
+.effect { margin-top: 24px; padding-top: 24px; }
+.effect + .effect { margin-top: 96px; padding-top: 72px; border-top: 1px solid var(--border); }
+.effect-head { max-width: 720px; margin-bottom: 32px; display: flex; flex-direction: column; gap: 14px; }
+.effect-no { font-family: var(--mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--sage); }
+.effect-head h3 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+.effect-head p { color: var(--text-2); }
+.steps { list-style: none; margin: 40px 0 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
+.step { display: grid; grid-template-columns: 300px 1fr; gap: 32px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 14px 14px 14px 32px; transition: border-color .3s; }
+.step:hover { border-color: var(--sage); }
+.step-no { font-family: var(--mono); font-size: 13px; color: var(--sage); letter-spacing: .12em; }
+.step-text h4 { margin: 8px 0 10px; font-size: 22px; font-weight: 600; }
+.step-text p { color: var(--text-2); font-size: 14.5px; }
+.step-img { display: block; background: #1e1e1e; border-radius: var(--r-lg); overflow: hidden; }
+.step-img img { width: 100%; height: 340px; object-fit: contain; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.step-img.tall img { height: 620px; }
+.step-img:hover img { transform: scale(1.03); }
+@media (max-width: 900px) {
+  .step { grid-template-columns: 1fr; padding: 14px 14px 20px; gap: 18px; }
+  .step-text { padding: 8px 8px 0; order: 2; }
+  .step-img { order: 1; }
+  .step-img img { height: 240px; }
+  .step-img.tall img { height: 380px; }
+}

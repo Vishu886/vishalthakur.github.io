@@ -219,6 +219,7 @@
       </section>
 
       <!-- ============ ZORB FIGHT BREAKDOWN ============ -->
+      <!-- Each effect = result video(s) on top, then the graphs that make it, stacked step by step. -->
       <section class="section zorb" id="zorb">
         <div class="container">
           <div class="section-head">
@@ -226,63 +227,64 @@
               <p class="label">Breakdown · Zorb Fight</p>
               <h2 class="title">How I build <em>the effects.</em></h2>
             </div>
-            <p class="reveal d1">Shader Graph materials and VFX Graph systems behind the orb explosion — in Unity.</p>
+            <p class="reveal d1">Each effect: the result, then the graphs behind it. Click any graph to see it full size.</p>
           </div>
 
-          <!-- Hero video -->
-          <div class="bd-hero reveal">
-            <figure class="media">
+          <!-- ========== EFFECT 01: ORB EXPLOSION ========== -->
+          <article class="effect">
+            <header class="effect-head reveal">
+              <span class="effect-no">Effect 01</span>
+              <h3>Orb Explosion</h3>
+              <p>A charged orb builds, then bursts into sparks, a dome shockwave and a ground impact. Each layer is its own VFX Graph system, so it can be tuned on its own.</p>
+              <div class="tags"><span class="tag on">VFX Graph</span><span class="tag">Unity</span></div>
+            </header>
+            <figure class="media reveal">
               <video class="lazy-vid" src="images/zorb/orb.mp4" poster="images/zorb/orb.jpg" muted loop playsinline preload="none" aria-label="Orb explosion VFX"></video>
             </figure>
-            <div class="bd-copy">
-              <h3>Orb Explosion</h3>
-              <p>A charged orb builds, then bursts into sparks, a dome shockwave and a ground impact. Built as separate VFX Graph systems fired together, so each layer can be tuned on its own.</p>
-              <div class="tags"><span class="tag on">VFX Graph</span><span class="tag">Shader Graph</span><span class="tag">Unity</span></div>
+            <ol class="steps">
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">01</span><h4>The orb</h4><p>Additive orb and flare quads driven by curves and gradients over life. A second system pulls particles in with an attractor and turbulence.</p></div>
+                <a class="step-img tall" href="images/zorb/vfx-orb.webp" target="_blank" rel="noreferrer"><img src="images/zorb/vfx-orb.webp" alt="Orb VFX Graph" loading="lazy" /></a>
+              </li>
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">02</span><h4>The burst</h4><p>Spark hit, dome shockwave, flare, impact flipbooks and ground marks — one system each, fired together.</p></div>
+                <a class="step-img" href="images/zorb/vfx-explosion.webp" target="_blank" rel="noreferrer"><img src="images/zorb/vfx-explosion.webp" alt="Explosion VFX Graph" loading="lazy" /></a>
+              </li>
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">03</span><h4>Ground AOE</h4><p>A single-burst quad with a size curve and colour gradient. Simple and cheap.</p></div>
+                <a class="step-img" href="images/zorb/vfx-ground.webp" target="_blank" rel="noreferrer"><img src="images/zorb/vfx-ground.webp" alt="Ground AOE VFX Graph" loading="lazy" /></a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- ========== EFFECT 02: EXPLOSION (3 COLOURS) ========== -->
+          <article class="effect">
+            <header class="effect-head reveal">
+              <span class="effect-no">Effect 02</span>
+              <h3>Explosion</h3>
+              <p>The same explosion in three colours, built on three Shader Graph materials.</p>
+              <div class="tags"><span class="tag on">Shader Graph</span><span class="tag">Particles</span><span class="tag">Unity</span></div>
+            </header>
+            <div class="variants">
+              <figure class="media reveal"><video class="lazy-vid" src="images/zorb/blue.mp4" poster="images/zorb/blue.jpg" muted loop playsinline preload="none" aria-label="Blue explosion"></video><figcaption>Blue</figcaption></figure>
+              <figure class="media reveal d1"><video class="lazy-vid" src="images/zorb/green.mp4" poster="images/zorb/green.jpg" muted loop playsinline preload="none" aria-label="Green explosion"></video><figcaption>Green</figcaption></figure>
+              <figure class="media reveal d2"><video class="lazy-vid" src="images/zorb/red.mp4" poster="images/zorb/red.jpg" muted loop playsinline preload="none" aria-label="Red explosion"></video><figcaption>Red</figcaption></figure>
             </div>
-          </div>
-
-          <!-- Colour variants -->
-          <h3 class="bd-sub reveal">One system, three colours</h3>
-          <div class="variants">
-            <figure class="media reveal"><video class="lazy-vid" src="images/zorb/blue.mp4" poster="images/zorb/blue.jpg" muted loop playsinline preload="none" aria-label="Blue explosion"></video><figcaption>Blue</figcaption></figure>
-            <figure class="media reveal d1"><video class="lazy-vid" src="images/zorb/green.mp4" poster="images/zorb/green.jpg" muted loop playsinline preload="none" aria-label="Green explosion"></video><figcaption>Green</figcaption></figure>
-            <figure class="media reveal d2"><video class="lazy-vid" src="images/zorb/red.mp4" poster="images/zorb/red.jpg" muted loop playsinline preload="none" aria-label="Red explosion"></video><figcaption>Red</figcaption></figure>
-          </div>
-          <p class="bd-note reveal">Colour is exposed as a property, so a new team colour is a value change, not new art.</p>
-
-          <!-- Shaders -->
-          <h3 class="bd-sub reveal">Shader approach</h3>
-          <div class="shots split">
-            <a class="shot tall reveal" href="images/zorb/voronoi.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/voronoi.webp" alt="Erosion Voronoi Shader Graph" loading="lazy" />
-              <div><b>Erosion Voronoi</b><p>Animated Voronoi cells drive colour and emission, while scrolling noise pushes the vertices for a living, eroding surface.</p></div>
-            </a>
-            <a class="shot reveal d1" href="images/zorb/ring.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/ring.webp" alt="Ring texture Shader Graph" loading="lazy" />
-              <div><b>Ring Texture</b><p>A scrolling ring texture warped by a noise distortion, tinted by vertex colour — the shockwave look.</p></div>
-            </a>
-            <a class="shot reveal d2" href="images/zorb/particle.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/particle.webp" alt="Simple particle Shader Graph" loading="lazy" />
-              <div><b>Simple Particle</b><p>Texture × colour × vertex colour, alpha cut for cheap, clean sprites.</p></div>
-            </a>
-          </div>
-
-          <!-- VFX graphs -->
-          <h3 class="bd-sub reveal">VFX Graph setups</h3>
-          <div class="shots">
-            <a class="shot wide reveal" href="images/zorb/vfx-explosion.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/vfx-explosion.webp" alt="Explosion VFX Graph" loading="lazy" />
-              <div><b>Explosion</b><p>Spark hit, dome shockwave, flare, impact flipbooks and ground marks — one system each.</p></div>
-            </a>
-            <a class="shot reveal d1" href="images/zorb/vfx-orb.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/vfx-orb.webp" alt="Orb VFX Graph" loading="lazy" />
-              <div><b>Orb</b><p>Additive orb and flare driven by curves and gradients over life; particles are pulled in by an attractor with turbulence.</p></div>
-            </a>
-            <a class="shot reveal d2" href="images/zorb/vfx-ground.webp" target="_blank" rel="noreferrer">
-              <img src="images/zorb/vfx-ground.webp" alt="Ground AOE VFX Graph" loading="lazy" />
-              <div><b>Ground AOE</b><p>A single-burst quad with size curve and colour gradient — simple and cheap.</p></div>
-            </a>
-          </div>
+            <ol class="steps">
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">01</span><h4>Simple Particle</h4><p>Texture × colour × vertex colour, with alpha cut — cheap, clean sprites.</p></div>
+                <a class="step-img" href="images/zorb/particle.webp" target="_blank" rel="noreferrer"><img src="images/zorb/particle.webp" alt="Simple particle Shader Graph" loading="lazy" /></a>
+              </li>
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">02</span><h4>Ring Texture</h4><p>A scrolling ring texture warped by a noise distortion and tinted by vertex colour — the shockwave look.</p></div>
+                <a class="step-img" href="images/zorb/ring.webp" target="_blank" rel="noreferrer"><img src="images/zorb/ring.webp" alt="Ring texture Shader Graph" loading="lazy" /></a>
+              </li>
+              <li class="step reveal">
+                <div class="step-text"><span class="step-no">03</span><h4>Erosion Voronoi</h4><p>Animated Voronoi cells drive colour and emission, while scrolling noise pushes the vertices for an eroding surface.</p></div>
+                <a class="step-img tall" href="images/zorb/voronoi.webp" target="_blank" rel="noreferrer"><img src="images/zorb/voronoi.webp" alt="Erosion Voronoi Shader Graph" loading="lazy" /></a>
+              </li>
+            </ol>
+          </article>
         </div>
       </section>
 
