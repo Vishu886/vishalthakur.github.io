@@ -1,0 +1,17 @@
+PUT YOUR PHOTOS IN THIS FOLDER
+==============================
+
+Use these exact file names and they will show up on the site
+automatically (just refresh the page):
+
+  my-photo.jpg    -->  your face photo (About section)
+  project1.jpg    -->  picture for The Forgotten Asylum
+  project2.jpg    -->  picture for Zorb Fight
+
+Tips:
+- JPG or PNG both work. If you use PNG, also change ".jpg" to ".png"
+  in index.html on the matching line.
+- Landscape (wide) pictures look best for projects.
+- Portrait (tall) pictures look best for your face photo.
+- If a photo is missing, the site shows nice artwork instead,
+  so nothing ever looks broken.
