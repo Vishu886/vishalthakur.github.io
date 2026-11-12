@@ -53,7 +53,7 @@
         <a class="logo" href="#top" aria-label="Vishal Thakur, home">
           <svg><use href="#i-logo" /></svg>
           <!-- EDIT: Your name/monogram. -->
-          VISHAL.
+          VISHAL THAKUR
         </a>
         <nav class="nav-links" id="site-nav" aria-label="Primary">
           <a href="#top" data-nav="top" class="active">Home</a>
@@ -102,18 +102,12 @@
 
           <div class="hero-visual">
             <div class="hero-frame">
-              <!-- PHOTO: images/hero.jpg — your best 3D render / environment shot. -->
-              <div class="hero-art" aria-hidden="true">
-                <svg viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1">
-                  <g class="spin"><ellipse cx="200" cy="200" rx="150" ry="150" opacity=".5"/><ellipse cx="200" cy="200" rx="150" ry="55" opacity=".4"/><ellipse cx="200" cy="200" rx="55" ry="150" opacity=".4"/><ellipse cx="200" cy="200" rx="105" ry="150" opacity=".3"/></g>
-                  <g class="spin rev"><ellipse cx="200" cy="200" rx="185" ry="70" opacity=".25" transform="rotate(30 200 200)"/><ellipse cx="200" cy="200" rx="185" ry="70" opacity=".25" transform="rotate(-30 200 200)"/></g>
-                  <circle cx="200" cy="200" r="6" fill="currentColor" stroke="none"/>
-                </svg>
-              </div>
-              <img src="images/hero.jpg" alt="Featured 3D artwork by Vishal Thakur" class="hero-img" fetchpriority="high" />
+              <!-- 3D avatar. If WebGL is available the script turns this into a depth "spatial" scene
+                   (images/hero-depth.webp is the depth map). Otherwise this plain image is shown. -->
+              <img src="images/hero-avatar.webp" alt="3D avatar of Vishal Thakur" class="hero-img" id="hero-img" width="1000" height="1250" fetchpriority="high" data-depth="images/hero-depth.webp" />
+              <canvas id="hero-spatial" aria-hidden="true"></canvas>
             </div>
             <span class="hero-chip b">Unity · Maya · Substance</span>
-            <span class="hero-chip a">v1.0 — real-time</span>
           </div>
         </div>
         <div class="scroll-ind" aria-hidden="true"><span></span>Scroll</div>

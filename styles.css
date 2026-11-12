@@ -477,3 +477,9 @@ h2.title em { font-style: normal; color: var(--moss); }
 .thumb .badge { z-index: 2; }
 .thumb.logo-wide { aspect-ratio: 933 / 444; }
 .thumb:has(img.cover) .badge { top: auto; bottom: 14px; }
+
+/* Hero avatar + spatial canvas */
+.hero-frame #hero-spatial { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.hero-frame.spatial #hero-spatial { display: block; }
+.hero-frame.spatial .hero-img { visibility: hidden; }
+.hero-frame::after { background: linear-gradient(to top, rgba(8,12,10,.35), transparent 35%); }
