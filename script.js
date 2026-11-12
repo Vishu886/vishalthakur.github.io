@@ -109,3 +109,20 @@ if (canvas && !reduceMotion) {
     else tick();
   });
 }
+
+// Videos: play only while visible (saves battery/data); show controls if reduced motion
+const vids = document.querySelectorAll("video.lazy-vid");
+if (reduceMotion) {
+  vids.forEach((v) => { v.controls = true; v.preload = "metadata"; });
+} else {
+  const vidObs = new IntersectionObserver(
+    (entries) => {
+      for (const en of entries) {
+        if (en.isIntersecting) en.target.play().catch(() => {});
+        else en.target.pause();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  vids.forEach((v) => vidObs.observe(v));
+}

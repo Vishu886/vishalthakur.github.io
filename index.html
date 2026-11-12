@@ -42,6 +42,7 @@
         <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
         <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
         <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
         <symbol id="i-logo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M16 4 29 27H3z"/><path d="M16 12l6.5 11h-13z"/></symbol>
       </defs>
     </svg>
@@ -183,8 +184,7 @@
             <article class="card narrow reveal d1">
               <a class="thumb" href="https://d3d-studios.itch.io/zorb-fight" target="_blank" rel="noreferrer" aria-label="View Zorb Fight">
                 <div class="ph"></div>
-                <!-- PHOTO: images/project2.jpg -->
-                <img class="project-photo" src="images/project2.jpg" alt="Zorb Fight screenshot" loading="lazy" />
+                <video class="lazy-vid" src="images/zorb/orb.mp4" poster="images/zorb/orb.jpg" muted loop playsinline preload="none" aria-label="Zorb Fight orb explosion VFX"></video>
                 <span class="badge">Real-Time VFX / Shaders</span>
               </a>
               <div class="card-body">
@@ -197,7 +197,7 @@
                 </dl>
                 <div class="card-foot">
                   <div class="tags"><span class="tag">Unity</span><span class="tag">Shader Graph</span><span class="tag">VFX</span></div>
-                  <a class="icon-btn" href="https://d3d-studios.itch.io/zorb-fight" target="_blank" rel="noreferrer" aria-label="Open project"><svg><use href="#i-arrow" /></svg></a>
+                  <a class="icon-btn" href="#zorb" aria-label="See the Zorb Fight breakdown"><svg><use href="#i-arrow" /></svg></a>
                 </div>
               </div>
             </article>
@@ -214,6 +214,74 @@
               <svg><use href="#i-layers" /></svg>
               <p>Shader &amp; VFX experiments — in progress.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ZORB FIGHT BREAKDOWN ============ -->
+      <section class="section zorb" id="zorb">
+        <div class="container">
+          <div class="section-head">
+            <div class="reveal">
+              <p class="label">Breakdown · Zorb Fight</p>
+              <h2 class="title">How I build <em>the effects.</em></h2>
+            </div>
+            <p class="reveal d1">Shader Graph materials and VFX Graph systems behind the orb explosion — in Unity.</p>
+          </div>
+
+          <!-- Hero video -->
+          <div class="bd-hero reveal">
+            <figure class="media">
+              <video class="lazy-vid" src="images/zorb/orb.mp4" poster="images/zorb/orb.jpg" muted loop playsinline preload="none" aria-label="Orb explosion VFX"></video>
+            </figure>
+            <div class="bd-copy">
+              <h3>Orb Explosion</h3>
+              <p>A charged orb builds, then bursts into sparks, a dome shockwave and a ground impact. Built as separate VFX Graph systems fired together, so each layer can be tuned on its own.</p>
+              <div class="tags"><span class="tag on">VFX Graph</span><span class="tag">Shader Graph</span><span class="tag">Unity</span></div>
+            </div>
+          </div>
+
+          <!-- Colour variants -->
+          <h3 class="bd-sub reveal">One system, three colours</h3>
+          <div class="variants">
+            <figure class="media reveal"><video class="lazy-vid" src="images/zorb/blue.mp4" poster="images/zorb/blue.jpg" muted loop playsinline preload="none" aria-label="Blue explosion"></video><figcaption>Blue</figcaption></figure>
+            <figure class="media reveal d1"><video class="lazy-vid" src="images/zorb/green.mp4" poster="images/zorb/green.jpg" muted loop playsinline preload="none" aria-label="Green explosion"></video><figcaption>Green</figcaption></figure>
+            <figure class="media reveal d2"><video class="lazy-vid" src="images/zorb/red.mp4" poster="images/zorb/red.jpg" muted loop playsinline preload="none" aria-label="Red explosion"></video><figcaption>Red</figcaption></figure>
+          </div>
+          <p class="bd-note reveal">Colour is exposed as a property, so a new team colour is a value change, not new art.</p>
+
+          <!-- Shaders -->
+          <h3 class="bd-sub reveal">Shader approach</h3>
+          <div class="shots split">
+            <a class="shot tall reveal" href="images/zorb/voronoi.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/voronoi.webp" alt="Erosion Voronoi Shader Graph" loading="lazy" />
+              <div><b>Erosion Voronoi</b><p>Animated Voronoi cells drive colour and emission, while scrolling noise pushes the vertices for a living, eroding surface.</p></div>
+            </a>
+            <a class="shot reveal d1" href="images/zorb/ring.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/ring.webp" alt="Ring texture Shader Graph" loading="lazy" />
+              <div><b>Ring Texture</b><p>A scrolling ring texture warped by a noise distortion, tinted by vertex colour — the shockwave look.</p></div>
+            </a>
+            <a class="shot reveal d2" href="images/zorb/particle.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/particle.webp" alt="Simple particle Shader Graph" loading="lazy" />
+              <div><b>Simple Particle</b><p>Texture × colour × vertex colour, alpha cut for cheap, clean sprites.</p></div>
+            </a>
+          </div>
+
+          <!-- VFX graphs -->
+          <h3 class="bd-sub reveal">VFX Graph setups</h3>
+          <div class="shots">
+            <a class="shot wide reveal" href="images/zorb/vfx-explosion.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/vfx-explosion.webp" alt="Explosion VFX Graph" loading="lazy" />
+              <div><b>Explosion</b><p>Spark hit, dome shockwave, flare, impact flipbooks and ground marks — one system each.</p></div>
+            </a>
+            <a class="shot reveal d1" href="images/zorb/vfx-orb.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/vfx-orb.webp" alt="Orb VFX Graph" loading="lazy" />
+              <div><b>Orb</b><p>Additive orb and flare driven by curves and gradients over life; particles are pulled in by an attractor with turbulence.</p></div>
+            </a>
+            <a class="shot reveal d2" href="images/zorb/vfx-ground.webp" target="_blank" rel="noreferrer">
+              <img src="images/zorb/vfx-ground.webp" alt="Ground AOE VFX Graph" loading="lazy" />
+              <div><b>Ground AOE</b><p>A single-burst quad with size curve and colour gradient — simple and cheap.</p></div>
+            </a>
           </div>
         </div>
       </section>
@@ -251,8 +319,9 @@
           <div class="skills-grid">
             <div class="skill-card reveal"><h3>Game Engine</h3><div class="tags"><span class="tag on">Unity</span><span class="tag">C#</span></div></div>
             <div class="skill-card reveal d1"><h3>Technical</h3><div class="tags"><span class="tag on">Shader Graph</span><span class="tag">Particle Systems</span><span class="tag">Materials</span><span class="tag">Optimization</span></div></div>
-            <div class="skill-card reveal"><h3>3D Software</h3><div class="tags"><span class="tag on">Maya</span><span class="tag">ZBrush</span></div></div>
-            <div class="skill-card reveal d1"><h3>Texturing</h3><div class="tags"><span class="tag on">Substance Painter</span><span class="tag">Photoshop</span><span class="tag">PBR Workflows</span></div></div>
+            <div class="skill-card reveal"><h3>3D Software</h3><div class="tags"><span class="tag on">Maya</span><span class="tag on">Blender</span><span class="tag">ZBrush</span></div></div>
+            <div class="skill-card reveal d1"><h3>Procedural</h3><div class="tags"><span class="tag on">Houdini</span></div></div>
+            <div class="skill-card reveal"><h3>Texturing</h3><div class="tags"><span class="tag on">Substance Painter</span><span class="tag">Photoshop</span><span class="tag">PBR Workflows</span></div></div>
           </div>
         </div>
       </section>
@@ -318,7 +387,7 @@
             <a href="https://github.com/Vishu886" target="_blank" rel="noreferrer">GitHub <svg><use href="#i-arrow" /></svg></a>
             <a href="resume.pdf" download>Resume <svg><use href="#i-arrow" /></svg></a>
           </div>
-          <p class="contact-phone"><a href="tel:+918699625765">+91 86996 25765</a></p>
+          <a class="phone-btn reveal d2" href="tel:+918699625765"><svg width="18" height="18"><use href="#i-phone" /></svg><span>Call <b>+91 86996 25765</b></span></a>
         </div>
       </section>
     </main>
